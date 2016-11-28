@@ -51,11 +51,13 @@ def cadusers():
             values = users.values()
             insert_info = ("INSERT INTO Users (%s) VALUES ('%s')" %
             (",".join(colunas),"','".join(values)))
-            print(insert_info)
-            connsql("Use Users")
             connsql(insert_info)
             print("Dados salvos com sucesso!") 
         else:
             break
-           
+        new_user = get_input("Deseja cadastrar outro usuário? 's'/'n': ")
+        if new_user == 's':
+            continue
+        else:
+            break 
 cadusers()
